@@ -1,0 +1,20 @@
+import { useDispatch } from 'react-redux';
+import { deleteContact } from 'redux/contacts/operations';
+import css from './ContactList.module.css';
+
+export const Contact = ({ id, text }) => {
+  const dispatch = useDispatch();
+  const handleDelete = () => dispatch(deleteContact(id));
+
+  return (
+    <div className={css.wrapper}>
+      <p className={css.text}>{text}</p>
+          <button
+              type="button"
+              className={css.button}
+              onClick={handleDelete}>
+        Delete
+      </button>
+    </div>
+  );
+};
