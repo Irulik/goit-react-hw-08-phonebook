@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import css from "./ContactForm.module.css";
+import css from "./ContactForm.module.css";
 import { addContact } from '../../redux/contacts/operations';
 // import { nanoid } from 'nanoid';
 import { selectContacts } from '../../redux/slice';
@@ -51,7 +51,7 @@ export const ContactForm = () => {
           required
         />
       </div>
-      <button type="submit">Add Contact</button>
+      <button className={css.btn} type="submit">Add Contact</button>
     </form>
   );
 }
