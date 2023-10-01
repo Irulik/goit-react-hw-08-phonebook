@@ -6,23 +6,19 @@ import { fetchContacts } from '../../redux/contacts/operations';
 import { selectFilter } from '../../redux/filterSlice';
 
 const getVisibleContacts = (contacts, filter) => {
-  if (!Array.isArray(contacts) || filter === undefined) {
-    return [];
-  }
-
+  const normalizedFilter = filter.toLowerCase();
   return contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
+    contact.name.toLowerCase().includes(normalizedFilter)
   );
 };
-
 
 export const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
-  const visibleContacts = getVisibleContacts(contacts, filter);
-  
-
+const visibleContacts = getVisibleContacts(contacts, filter);
+ 
+ 
   const handleDelete = async id => {
     try {
       // Відправлення запиту на сервер для видалення контакта
@@ -55,7 +51,7 @@ export const ContactList = () => {
       {visibleContacts.map(contact => (
         <li className="contact_list_element" key={contact.id}>
           <div className="contact_list_div">
-            <p className="contact_list_p">• {contact.name}</p>
+            <p className="contact_list_p">{contact.name}</p>
             <p className="contact_list_p">{contact.number}</p>
           </div>
           <button

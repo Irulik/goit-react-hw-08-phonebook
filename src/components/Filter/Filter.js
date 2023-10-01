@@ -1,8 +1,9 @@
 import React from 'react';
 // import css from './Filter.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterContact } from '../../redux/slice';
-import { selectFilter } from '../../redux/filterSlice'; 
+// import { filterContact } from '../../redux/slice';
+import { selectFilter } from '../../redux/filterSlice';
+import { setFilter } from '../../redux/filterSlice'; 
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,8 @@ export const Filter = () => {
 
 
   const handleFilterChange = e => {
-    dispatch(filterContact(e.target.value));
+    const value = e.target.value;
+    dispatch(setFilter(value)); // Оновлюємо значення фільтру в Redux-сторі
   };
 
   return (

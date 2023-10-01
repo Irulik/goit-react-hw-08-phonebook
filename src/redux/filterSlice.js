@@ -10,8 +10,8 @@ const filterSlice = createSlice({
 
     reducers: {
         setFilter(state, action) {
-            return action.payload;
-        },
+  state.filter = action.payload;
+}
     },
 });
 
@@ -20,7 +20,7 @@ export const selectFilter = state => state.filter.filter;
 
 export const selectFilteredContacts = state => {
     const filter = selectFilter(state).toLowerCase();
-    return state.contacts.filter(contact =>
+    return state.contacts.contacts.filter(contact =>
         contact.name.toLowerCase().includes(filter));
 };
 
