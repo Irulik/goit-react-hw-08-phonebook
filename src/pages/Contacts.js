@@ -23,7 +23,7 @@ export default function Contacts() {
       <ContactForm />
       <h2>Contacts</h2>
       <div>{isLoading && "We're thinking about it..."}</div>
-      <Filter />
+      <Filter /> 
       <ContactList />
     </>
   );

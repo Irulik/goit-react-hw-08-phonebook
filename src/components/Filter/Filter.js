@@ -1,18 +1,13 @@
 import React from 'react';
-// import css from './Filter.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-// import { filterContact } from '../../redux/slice';
-import { selectFilter } from '../../redux/filterSlice';
-import { setFilter } from '../../redux/filterSlice'; 
+import { setFilter } from '../../redux/contacts/slice'; 
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(selectFilter);
-
+  const filter = useSelector(state => state.contacts.filter); 
 
   const handleFilterChange = e => {
-    const value = e.target.value;
-    dispatch(setFilter(value)); // Оновлюємо значення фільтру в Redux-сторі
+    dispatch(setFilter(e.target.value));
   };
 
   return (
@@ -28,3 +23,4 @@ export const Filter = () => {
     </div>
   );
 };
+

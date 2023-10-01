@@ -13,17 +13,17 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(register.pending, (state) => {
-        state.error = null; // Скидайте помилки перед реєстрацією
+        state.error = null; 
       })
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        state.error = null; // Очищуйте помилки після успішної реєстрації
+        state.error = null; 
       })
       .addCase(register.rejected, (state, action) => {
-        state.error = action.payload; // Збережіть помилку в стані
+        state.error = action.payload; 
       })
       .addCase(logIn.fulfilled, (state, action) => {
         state.user = action.payload.user;
