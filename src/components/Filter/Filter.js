@@ -15,12 +15,13 @@ export const Filter = () => {
 
   return (
     <div>
+      <label htmlFor="filter">Find contacts by name:</label>
       <input
         type="text"
+        id="filter"
+        name="filter"
         value={filter}
         onChange={handleFilterChange}
-        placeholder="Search contacts..."
-        name="filter"
       />
     </div>
   );
