@@ -1,3 +1,10 @@
+.centeredContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
 .list {
     padding: 0;
     margin: 0;
@@ -6,4 +13,3 @@
     grid-template-columns: 1fr;
     grid-gap: 12px;
 }
-
